@@ -10,8 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     <style>
-    nav > a {
-      color: blue;
+    .max-w-400 {
+      max-width: 400px;
+      margin: auto;
+
+    }
+    .card {
+      background: #e3e3e3; 
+      padding: 1rem; 
+      text-align: center;
     }
     </style>
 </head>
