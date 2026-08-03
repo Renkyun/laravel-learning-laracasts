@@ -1,20 +1,25 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 
 
 
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
 
-//blade direcives
+
 Route::get('/', function () {
-  return view('welcome', [
-    'tasks' => [
-      'Go to the market',
-      'Walk the dog',
-      'Watch a tutorial video'
-    ]
+  $ideas = session()->get('ideas', []);
+
+  return view('ideas', [
+    'ideas' => $ideas
   ]);
+});
+
+Route::post('/ideas', function () {
+  $idea = request('idea');
+
+  session()->push('ideas', $idea);
+
+  return redirect('/');
 });
