@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-200">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -11,7 +11,7 @@
         <li><a>New Idea</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Ideas</a>
+    <a href="/ideas" class="btn btn-ghost text-xl">Ideas</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
@@ -19,7 +19,20 @@
       <li><a href = "/ideas/create">New Idea</a></li>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn">Register</a>
+  <div class="navbar-end space-x-2">
+    @guest
+    <a href = "/register" class="btn btn-neutral">Register</a>
+    <a href = "/login" class="btn btn-soft">Login</a>
+
+    @endguest
+
+    @auth
+      <form method="POST" action="/logout">
+        @csrf
+        @method('DELETE')
+
+        <button class="btn btn-neutral">Log Out</button>
+    @endauth
+  </form>
   </div>
 </div>
