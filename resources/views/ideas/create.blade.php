@@ -1,24 +1,14 @@
 <x-layout>
-    <form method ="POST" action="/ideas" >
-      @csrf
-        <div class="col-span-full">
-            <label for="description" 
-            class="block text-sm/6 font-medium text-white">
-            Create a New Idea
-          </label>
-            <div class="mt-2">
-              <textarea id="description" 
-              name="description" 
-              rows="3" 
-              class="textarea w-full @error('description') textarea-error @enderror"></textarea>
+  <form method ="POST" action="/ideas" >
+    @csrf
+    <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto">
+      <legend class="fieldset-legend">New Idea</legend>
+    
+      <label class="label" for="description">Description</label>
+      <textarea id="description" name="description" class="textarea" placeholder="Your Idea"></textarea>
 
-           <x-forms.error name="description" />
-            </div>
-            <p class="mt-3 text-sm/6 text-gray-400">Thinking about an idea? Write it!</p>
-          </div>
 
-          <div class="mt-6 flex items-center  gap-x-6">
-              <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Save</button>
-          </div>
-        </form>
+      <button class="btn btn-neutral mt-4">Create</button>
+    </fieldset>
+      </form>
 </x-layout>
